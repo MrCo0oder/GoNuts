@@ -21,13 +21,13 @@ class _DonutsCardState extends State<DonutsCard> {
 
   Widget item(DonutsItem item) {
     return GestureDetector(
-      onTap:  () {
+      onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => DonutsDetailsPage(
-                item: item,
-              )),
+                    item: item,
+                  )),
         );
       },
       child: Padding(

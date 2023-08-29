@@ -1,7 +1,7 @@
 import '../models/donuts_item.dart';
 import '../models/offers_item.dart';
 
-var list = [
+final list = [
   OfferItem(
       isLiked: true,
       donutName: 'Strawberry Wheel',
@@ -67,7 +67,7 @@ var list = [
       donutPrice: 22.0,
       offer: 15),
 ];
-var donutsList = [
+final donutsList = [
   DonutsItem(
     donutName: 'Strawberry Wheel',
     imagePath: 'images/strawberry_wheel.png',
@@ -104,5 +104,3 @@ var donutsList = [
     donutPrice: 22.0,
   ),
 ];
-
-

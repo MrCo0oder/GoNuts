@@ -217,46 +217,42 @@ class _DonutsDetailsPageState extends State<DonutsDetailsPage> {
                                       ),
                                       Expanded(
                                         flex: 2,
-                                        child: Container(
-                                          margin: const EdgeInsets.fromLTRB(
-                                              26.0, 0, 26.0, 0),
-                                          child: ElevatedButton(
-                                            onPressed: () {},
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor:
-                                              Constants.accentColor,
-                                              shadowColor: Colors.black26,
-                                              foregroundColor:
-                                              const Color(0x5FFED8DF),
-                                              enableFeedback: true,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                  BorderRadius.circular(
-                                                      50)),
-                                              minimumSize: const Size(200, 67),
-                                              elevation: 0,
-                                            ),
-                                            child: const Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  'Add to Cart',
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: 20,
-                                                  ),
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor:
+                                            Constants.accentColor,
+                                            shadowColor: Colors.black26,
+                                            foregroundColor:
+                                            const Color(0x5FFED8DF),
+                                            enableFeedback: true,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                BorderRadius.circular(
+                                                    50)),
+                                            minimumSize: const Size(200, 67),
+                                            elevation: 0,
+                                          ),
+                                          child: const Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'Add to Cart',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 20,
                                                 ),
-                                                // SizedBox(
-                                                //   width: 14,
-                                                // ),
-                                                // Icon(
-                                                //   Icons.shopping_bag,
-                                                //   color: Colors.white,
-                                                // ),
-                                              ],
-                                            ),
+                                              ),
+                                              SizedBox(
+                                                width: 14,
+                                              ),
+                                              Icon(
+                                                Icons.shopping_bag,
+                                                color: Colors.white,
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),

@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
       title: 'Flutter App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFFF7074)),
+        fontFamily: 'Poppins',
         useMaterial3: false,
       ),
       home: const HomePageState(),
@@ -40,9 +41,28 @@ class _HomePageStateState extends State<HomePageState> {
   @override
   Widget build(BuildContext context) {
     appBar ??= normalAppBar();
-    return Scaffold(
-      appBar: appBar,
-      body:  Container(
+    if (!(_setSelectedItemIndex == 0)) {
+      appBar = AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Text(
+          ' Your favourite donuts is here',
+          style: TextStyle(
+            color: Constants.accentColor,
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+          ),
+          textAlign: TextAlign.start,
+          overflow: TextOverflow.ellipsis,
+        ),
+        centerTitle: true,
+      );
+    } else {
+      appBar = normalAppBar();
+    }
+    final pages = [
+
+      Container(
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -112,7 +132,7 @@ class _HomePageStateState extends State<HomePageState> {
                   ),
                 ),
                 SizedBox(
-                  height: 156,
+                  height: 159,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: donutsList.length,
@@ -125,6 +145,64 @@ class _HomePageStateState extends State<HomePageState> {
               ]),
         ),
       ),
+      Container(
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Color(0xFFF2F2F2),
+            ],
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: ListView.builder(
+              itemCount: list.length,
+              itemBuilder: (c, i) {
+                return Material(
+                  color: Colors.transparent,
+                  child: Container(
+                    margin: const EdgeInsetsDirectional.symmetric(vertical: 5),
+                    child: ListTile(
+                      isThreeLine: true,
+                      tileColor: Constants.primaryColor.withOpacity(0.3),
+                      splashColor: Constants.primaryColor,
+                      onTap: () {
+                        print(list[i].donutName);
+                      },
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      leading:
+                          Image.asset(list[i].imagePath, width: 50, height: 50),
+                      subtitle: Text(
+                        list[i].donutDescription,
+                        textAlign: TextAlign.justify,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                        style: TextStyle(
+                          color: Constants.fontColorBlack60,
+                          letterSpacing: 0.12,
+                        ),
+                      ),
+                      trailing: Text(
+                        list[i].donutPrice.toString(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Constants.accentColor),
+                      ),
+                      title: Text(list[i].donutName),
+                    ),
+                  ),
+                );
+              }),
+        ),
+      ),
+    ];
+    return Scaffold(
+      appBar: appBar,
+      body: pages[_setSelectedItemIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _setSelectedItem,
         elevation: 0,
@@ -172,91 +250,91 @@ class _HomePageStateState extends State<HomePageState> {
   }
 
   PreferredSizeWidget searchAppBar() => AppBar(
-    backgroundColor: Colors.white,
-    toolbarHeight: 80,
-    elevation: 0.0,
-    centerTitle: true,
-    title: TextField(
-      maxLines: 1,
-      cursorColor: Constants.accentColor,
-      style: const TextStyle(color: Colors.white),
-      decoration: InputDecoration(
-          hintText: 'Search here',
-          hintStyle: const TextStyle(color: Colors.white),
-          suffixIcon: InkWell(
-            onHover: (i) {},
-            onTap: () {
-              setState(() {
-                appBar = normalAppBar();
-              });
-            },
-            child: Ink(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: Constants.primaryColor,
-                borderRadius: BorderRadius.circular(15),
+        backgroundColor: Colors.white,
+        toolbarHeight: 80,
+        elevation: 0.0,
+        centerTitle: true,
+        title: TextField(
+          maxLines: 1,
+          cursorColor: Constants.accentColor,
+          style: const TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+              hintText: 'Search here',
+              hintStyle: const TextStyle(color: Colors.white),
+              suffixIcon: InkWell(
+                onHover: (i) {},
+                onTap: () {
+                  setState(() {
+                    appBar = normalAppBar();
+                  });
+                },
+                child: Ink(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Constants.primaryColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Icon(
+                    Icons.close,
+                    color: Constants.accentColor,
+                  ),
+                ),
               ),
-              child: Icon(
-                Icons.close,
-                color: Constants.accentColor,
-              ),
-            ),
-          ),
-          filled: true,
-          fillColor: Constants.primaryColor,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide.none,
-          )),
-    ),
-    actions: const [
-      SizedBox(
-        width: 30,
-      )
-    ],
-  );
+              filled: true,
+              fillColor: Constants.primaryColor,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none,
+              )),
+        ),
+        actions: const [
+          SizedBox(
+            width: 30,
+          )
+        ],
+      );
 
   PreferredSizeWidget normalAppBar() => AppBar(
-    toolbarHeight: 80,
-    backgroundColor: Colors.white,
-    elevation: 0.0,
-    title: Text(
-      'Let’s Gonuts!',
-      style: TextStyle(
-        color: Constants.accentColor,
-        fontWeight: FontWeight.w600,
-        fontSize: 30,
-      ),
-      textAlign: TextAlign.start,
-    ),
-    actions: [
-      Padding(
-        padding: const EdgeInsets.all(10),
-        child: InkWell(
-          // onHover: (i) {},
-          onTap: () {
-            setState(() {
-              appBar = searchAppBar();
-            });
-          },
-          child: Ink(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Constants.primaryColor,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Icon(
-              Icons.search,
-              color: Constants.accentColor,
+        toolbarHeight: 80,
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        title: Text(
+          'Let’s Gonuts!',
+          style: TextStyle(
+            color: Constants.accentColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 30,
+          ),
+          textAlign: TextAlign.start,
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: InkWell(
+              // onHover: (i) {},
+              onTap: () {
+                setState(() {
+                  appBar = searchAppBar();
+                });
+              },
+              child: Ink(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Constants.primaryColor,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Icon(
+                  Icons.search,
+                  color: Constants.accentColor,
+                ),
+              ),
             ),
           ),
-        ),
-      ),
-      const SizedBox(
-        width: 40,
-      )
-    ],
-  );
+          const SizedBox(
+            width: 40,
+          )
+        ],
+      );
 }

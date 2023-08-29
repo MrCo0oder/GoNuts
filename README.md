@@ -1,4 +1,4 @@
-# learner_app
+# **GoNuts**
 
 A new Flutter project.
 

@@ -88,7 +88,7 @@ class _HomePageStateState extends State<HomePageState> {
                   ),
                 ),
                 SizedBox(
-                  height: 253,
+                  height: 285,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: list.length,
@@ -112,7 +112,7 @@ class _HomePageStateState extends State<HomePageState> {
                   ),
                 ),
                 SizedBox(
-                  height: 155,
+                  height: 156,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: donutsList.length,
@@ -172,91 +172,91 @@ class _HomePageStateState extends State<HomePageState> {
   }
 
   PreferredSizeWidget searchAppBar() => AppBar(
-        backgroundColor: Colors.white,
-        toolbarHeight: 80,
-        elevation: 0.0,
-        centerTitle: true,
-        title: TextField(
-          maxLines: 1,
-          cursorColor: Constants.accentColor,
-          style: const TextStyle(color: Colors.white),
-          decoration: InputDecoration(
-              hintText: 'Search here',
-              hintStyle: const TextStyle(color: Colors.white),
-              suffixIcon: InkWell(
-                onHover: (i) {},
-                onTap: () {
-                  setState(() {
-                    appBar = normalAppBar();
-                  });
-                },
-                child: Ink(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Constants.primaryColor,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Icon(
-                    Icons.close,
-                    color: Constants.accentColor,
-                  ),
-                ),
+    backgroundColor: Colors.white,
+    toolbarHeight: 80,
+    elevation: 0.0,
+    centerTitle: true,
+    title: TextField(
+      maxLines: 1,
+      cursorColor: Constants.accentColor,
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+          hintText: 'Search here',
+          hintStyle: const TextStyle(color: Colors.white),
+          suffixIcon: InkWell(
+            onHover: (i) {},
+            onTap: () {
+              setState(() {
+                appBar = normalAppBar();
+              });
+            },
+            child: Ink(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: Constants.primaryColor,
+                borderRadius: BorderRadius.circular(15),
               ),
-              filled: true,
-              fillColor: Constants.primaryColor,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide.none,
-              )),
-        ),
-        actions: const [
-          SizedBox(
-            width: 30,
-          )
-        ],
-      );
-
-  PreferredSizeWidget normalAppBar() => AppBar(
-        toolbarHeight: 80,
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        title: Text(
-          'Let’s Gonuts!',
-          style: TextStyle(
-            color: Constants.accentColor,
-            fontWeight: FontWeight.w600,
-            fontSize: 30,
-          ),
-          textAlign: TextAlign.start,
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: InkWell(
-              // onHover: (i) {},
-              onTap: () {
-                setState(() {
-                  appBar = searchAppBar();
-                });
-              },
-              child: Ink(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Constants.primaryColor,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Icon(
-                  Icons.search,
-                  color: Constants.accentColor,
-                ),
+              child: Icon(
+                Icons.close,
+                color: Constants.accentColor,
               ),
             ),
           ),
-          const SizedBox(
+          filled: true,
+          fillColor: Constants.primaryColor,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide.none,
+          )),
+    ),
+    actions: const [
+      SizedBox(
+        width: 30,
+      )
+    ],
+  );
+
+  PreferredSizeWidget normalAppBar() => AppBar(
+    toolbarHeight: 80,
+    backgroundColor: Colors.white,
+    elevation: 0.0,
+    title: Text(
+      'Let’s Gonuts!',
+      style: TextStyle(
+        color: Constants.accentColor,
+        fontWeight: FontWeight.w600,
+        fontSize: 30,
+      ),
+      textAlign: TextAlign.start,
+    ),
+    actions: [
+      Padding(
+        padding: const EdgeInsets.all(10),
+        child: InkWell(
+          // onHover: (i) {},
+          onTap: () {
+            setState(() {
+              appBar = searchAppBar();
+            });
+          },
+          child: Ink(
             width: 40,
-          )
-        ],
-      );
+            height: 40,
+            decoration: BoxDecoration(
+              color: Constants.primaryColor,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Icon(
+              Icons.search,
+              color: Constants.accentColor,
+            ),
+          ),
+        ),
+      ),
+      const SizedBox(
+        width: 40,
+      )
+    ],
+  );
 }

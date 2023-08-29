@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learner_app/models/donuts_item.dart';
 import 'package:learner_app/utils/constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class DonutsDetailsPage extends StatefulWidget {
   DonutsItem item;
@@ -138,7 +137,7 @@ class _DonutsDetailsPageState extends State<DonutsDetailsPage> {
                                             });
                                           },
                                           child:
-                                              const Icon(Icons.remove_rounded),
+                                          const Icon(Icons.remove_rounded),
                                         ),
                                       ),
                                     ),
@@ -204,7 +203,7 @@ class _DonutsDetailsPageState extends State<DonutsDetailsPage> {
                                 Center(
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceAround,
                                     children: [
                                       Expanded(
                                         flex: 1,
@@ -225,21 +224,21 @@ class _DonutsDetailsPageState extends State<DonutsDetailsPage> {
                                             onPressed: () {},
                                             style: ElevatedButton.styleFrom(
                                               backgroundColor:
-                                                  Constants.accentColor,
+                                              Constants.accentColor,
                                               shadowColor: Colors.black26,
                                               foregroundColor:
-                                                  const Color(0x5FFED8DF),
+                                              const Color(0x5FFED8DF),
                                               enableFeedback: true,
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          50)),
-                                              minimumSize: const Size(180, 67),
+                                                  BorderRadius.circular(
+                                                      50)),
+                                              minimumSize: const Size(200, 67),
                                               elevation: 0,
                                             ),
                                             child: const Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Add to Cart',
@@ -249,13 +248,13 @@ class _DonutsDetailsPageState extends State<DonutsDetailsPage> {
                                                     fontSize: 20,
                                                   ),
                                                 ),
-                                                SizedBox(
-                                                  width: 14,
-                                                ),
-                                                Icon(
-                                                  Icons.shopping_bag,
-                                                  color: Colors.white,
-                                                ),
+                                                // SizedBox(
+                                                //   width: 14,
+                                                // ),
+                                                // Icon(
+                                                //   Icons.shopping_bag,
+                                                //   color: Colors.white,
+                                                // ),
                                               ],
                                             ),
                                           ),
@@ -280,7 +279,7 @@ class _DonutsDetailsPageState extends State<DonutsDetailsPage> {
                         child: Material(
                           color: Colors.white,
                           borderRadius:
-                              const BorderRadius.all(Radius.circular(15)),
+                          const BorderRadius.all(Radius.circular(15)),
                           elevation: 1,
                           child: InkWell(
                             onTap: () {
@@ -290,13 +289,13 @@ class _DonutsDetailsPageState extends State<DonutsDetailsPage> {
                             },
                             child: widget.item.isLiked == true
                                 ? Icon(
-                                    Icons.favorite,
-                                    color: Constants.accentColor,
-                                  )
+                              Icons.favorite,
+                              color: Constants.accentColor,
+                            )
                                 : Icon(
-                                    Icons.favorite_border_outlined,
-                                    color: Constants.accentColor,
-                                  ),
+                              Icons.favorite_border_outlined,
+                              color: Constants.accentColor,
+                            ),
                           ),
                         ),
                       ),
@@ -319,14 +318,14 @@ class _DonutsDetailsPageState extends State<DonutsDetailsPage> {
     if (count > 1) count--;
   }
 
-  setData(String id) async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    if (!sharedPreferences.containsKey("WISH_LIST")) {
-      sharedPreferences.setStringList("WISH_LIST", [id]);
-    } else {
-      sharedPreferences.getStringList("WISH_LIST")?.add(id);
-      sharedPreferences.setStringList(
-          "WISH_LIST", sharedPreferences.getStringList("WISH_LIST")!);
-    }
-  }
+// setData(String id) async {
+//   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+//   if (!sharedPreferences.containsKey("WISH_LIST")) {
+//     sharedPreferences.setStringList("WISH_LIST", [id]);
+//   } else {
+//     sharedPreferences.getStringList("WISH_LIST")?.add(id);
+//     sharedPreferences.setStringList(
+//         "WISH_LIST", sharedPreferences.getStringList("WISH_LIST")!);
+//   }
+// }
 }
